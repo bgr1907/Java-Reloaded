@@ -2,7 +2,10 @@ package com.bgr.behavior;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class BehaviorParameterization {
 
@@ -19,10 +22,19 @@ public class BehaviorParameterization {
             }
         }));*/
 
-        System.out.println(getNumbersByBehavior(numbers, (n) -> n % 2 == 0));
-        System.out.println(getNumbersByBehavior(numbers, (n) -> n % 2 == 1));
-        System.out.println(getNumbersByBehavior(numbers, (n) -> n > 4));
-        numbers.forEach(System.out::println);
+        List<String> names = Arrays.asList("Halil", "İbrahim", "İpek", "Yavuz", "Kemal Beyaz", "Fatih", "Mithat", "Evren", "Altuğ");
+
+        //System.out.println(getNumbersByBehavior(numbers, (n) -> n % 2 == 0));
+        //System.out.println(getNumbersByBehavior(numbers, (n) -> n % 2 == 1));
+        //System.out.println(getNumbersByBehavior(numbers, (n) -> n > 4));
+        //numbers.forEach(System.out::println);
+
+        getValuesBehavior(numbers, n -> n < 9 ).forEach(System.out::println);
+        getValuesBehavior(names, s -> s.contains("a")).forEach(System.out::println);
+    }
+
+    public static <T> Collection<T> getValuesBehavior(final Collection<T> list, final Predicate<T> predicate) {
+        return list.stream().filter(predicate).collect(Collectors.toList());
     }
 
     public static List<Integer> getNumbersByBehavior(final List<Integer> list, final NumberPredicate<Integer> predicate){
