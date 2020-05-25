@@ -24,7 +24,7 @@ public class StreamExample {
         List<String> title = Arrays.asList("title1", "title1");
         Stream<String> titleStream = title.stream();
         titleStream.forEach(System.out::println);
-        titleStream.forEach(System.out::println);
+        //titleStream.forEach(System.out::println);
 
         colors.forEach(System.out::println);
 
