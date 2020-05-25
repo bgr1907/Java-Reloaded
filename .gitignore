@@ -1,0 +1,4 @@
+/Java8/target/
+.gitignore
+Java8/src/main/resources/
+Java8/src/test/
